@@ -24,9 +24,6 @@ export default class Login extends Component {
         await createUser({ name: loginName });
         const { history: { push } } = this.props;
         push('/search');
-        this.setState({
-          loading: false,
-        });
       });
   };
 
