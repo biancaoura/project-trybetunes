@@ -27,7 +27,6 @@ export default class Album extends Component {
   render() {
     const { allSongs, loading } = this.state;
     const { collectionName, artistName } = allSongs[0] || {};
-    console.log(allSongs);
 
     return (
       <div data-testid="page-album">
