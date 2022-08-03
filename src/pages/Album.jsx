@@ -26,8 +26,7 @@ export default class Album extends Component {
 
   render() {
     const { allSongs, loading } = this.state;
-    const { collectionName, artistName } = allSongs[0] || {};
-
+    const { collectionName, artistName, artworkUrl100 } = allSongs[0] || {};
     return (
       <div data-testid="page-album">
         <Header />
@@ -35,6 +34,7 @@ export default class Album extends Component {
         <section>
           <h4 data-testid="album-name">{collectionName}</h4>
           <p data-testid="artist-name">{artistName}</p>
+          <img src={ artworkUrl100 } alt="capa do álbum" />
         </section>
 
         <ul>
