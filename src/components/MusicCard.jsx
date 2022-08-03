@@ -14,11 +14,14 @@ export default class MusicCard extends Component {
   }
 
   handleCheck = (e) => {
-    const { trackId, trackName, previewUrl } = this.props;
+    const { trackId, trackName, previewUrl, artworkUrl30 } = this.props;
     this.setState({ loading: true },
       async () => {
-        if (e.target.checked) await addSong({ trackId, trackName, previewUrl });
-        else await removeSong({ trackId, trackName, previewUrl });
+        if (e.target.checked) {
+          await addSong({ trackId, trackName, previewUrl, artworkUrl30 });
+        } else {
+          await removeSong({ trackId, trackName, previewUrl, artworkUrl30 });
+        }
         const favoriteSongs = await getFavoriteSongs();
         this.setState({
           loading: false,
@@ -30,7 +33,6 @@ export default class MusicCard extends Component {
   render() {
     const { trackName, previewUrl, trackId } = this.props;
     const { loading, favoriteSongs } = this.state;
-
     return (
       <li>
         <section>
@@ -70,4 +72,9 @@ MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
+  artworkUrl30: PropTypes.string,
+};
+
+MusicCard.defaultProps = {
+  artworkUrl30: 'url',
 };
