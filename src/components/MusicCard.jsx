@@ -8,6 +8,11 @@ export default class MusicCard extends Component {
     favoriteSongs: [],
   }
 
+  async componentDidMount() {
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({ favoriteSongs });
+  }
+
   handleCheck = () => {
     const { trackId, trackName, previewUrl } = this.props;
     this.setState({ loading: true },
