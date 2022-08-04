@@ -24,8 +24,7 @@ export default class ProfileEdit extends Component {
   }
 
   handleChange = ({ target }) => {
-    const { name, type, checked } = target;
-    const value = type === 'checkbox' ? checked : target.value;
+    const { name, value } = target;
 
     this.setState({
       [name]: value,
