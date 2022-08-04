@@ -77,9 +77,10 @@ MusicCard.propTypes = {
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   artworkUrl30: PropTypes.string,
-  updateFavorite: PropTypes.func.isRequired,
+  updateFavorite: PropTypes.func,
 };
 
 MusicCard.defaultProps = {
   artworkUrl30: 'url',
+  updateFavorite: () => {},
 };
