@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes, { objectOf } from 'prop-types';
 import Header from '../components/Header';
-import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
+import Loading from '../components/Loading';
+import getMusics from '../services/musicsAPI';
 
 export default class Album extends Component {
   state = {
@@ -40,7 +41,7 @@ export default class Album extends Component {
         <ul>
           {
             loading
-              ? <h2>Carregando...</h2>
+              ? <Loading title />
               : (
                 allSongs
                   .slice(1)

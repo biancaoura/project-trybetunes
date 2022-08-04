@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
+import Loading from '../components/Loading';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 export default class Favorites extends Component {
@@ -31,7 +32,7 @@ export default class Favorites extends Component {
         <Header />
         {
           loading
-            ? <p>Carregando...</p>
+            ? <Loading />
             : (
               <ul>
                 {favoriteSongs.map((song) => (

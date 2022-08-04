@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 import { getUser } from '../services/userAPI';
 
 export default class Header extends Component {
@@ -30,7 +31,7 @@ export default class Header extends Component {
           <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
           <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
           { loading
-            ? <p>Carregando...</p>
+            ? <Loading />
             : (
               <p data-testid="header-user-name">
                 { loginName }

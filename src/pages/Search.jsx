@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Albums from '../components/Albums';
+import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 export default class Search extends Component {
@@ -46,7 +47,7 @@ export default class Search extends Component {
         <Header />
         {
           loading
-            ? <p>Carregando...</p>
+            ? <Loading />
             : (
               <section>
                 <h4>{`Resultado de álbuns de: ${artistResults}`}</h4>

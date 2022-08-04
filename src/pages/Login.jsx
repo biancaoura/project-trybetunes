@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 import '../styles/Login.css';
 
@@ -38,7 +39,7 @@ export default class Login extends Component {
     return (
       <div data-testid="page-login">
         {
-          loading === true ? <h1>Carregando...</h1> : (
+          loading === true ? <Loading title /> : (
             <main className="flex-column round-border">
 
               <header>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
 
 export default class ProfileEdit extends Component {
@@ -56,7 +57,7 @@ export default class ProfileEdit extends Component {
         <Header />
         {
           loading
-            ? <h4>Carregando...</h4>
+            ? <Loading />
             : (
               <section>
                 <input

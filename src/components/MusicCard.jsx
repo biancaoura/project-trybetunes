@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Loading from './Loading';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 export default class MusicCard extends Component {
@@ -50,7 +51,7 @@ export default class MusicCard extends Component {
 
           {
             loading
-              ? <p>Carregando...</p>
+              ? <Loading />
               : (
                 <label htmlFor="favorite">
                   <input
