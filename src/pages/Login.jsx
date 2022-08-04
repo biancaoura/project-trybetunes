@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
+import '../styles/Login.css';
 
 export default class Login extends Component {
   state = {
@@ -38,30 +39,40 @@ export default class Login extends Component {
       <div data-testid="page-login">
         {
           loading === true ? <h1>Carregando...</h1> : (
-            <div>
+            <main className="flex-column round-border">
 
-              <h1>Login</h1>
+              <header>
+                <h1>Welcome back!</h1>
+                <h4>Login</h4>
+              </header>
 
-              <input
-                type="text"
-                id="loginName"
-                name="loginName"
-                minLength="3"
-                placeholder="Nome"
-                value={ loginName }
-                onChange={ (e) => handleChange(e) }
-                data-testid="login-name-input"
-              />
-
-              <button
-                type="button"
-                disabled={ hasMinChar }
-                data-testid="login-submit-button"
-                onClick={ logginIn }
-              >
-                Entrar
-              </button>
-            </div>
+              <div className="input-container flex-column">
+                <div>
+                  <label htmlFor="loginName" className="name-container flex-column">
+                    <div>Name</div>
+                    <input
+                      type="text"
+                      id="loginName"
+                      name="loginName"
+                      minLength="3"
+                      placeholder="Your name"
+                      value={ loginName }
+                      onChange={ (e) => handleChange(e) }
+                      data-testid="login-name-input"
+                    />
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  className="round-border"
+                  disabled={ hasMinChar }
+                  data-testid="login-submit-button"
+                  onClick={ logginIn }
+                >
+                  Entrar
+                </button>
+              </div>
+            </main>
           )
         }
       </div>
