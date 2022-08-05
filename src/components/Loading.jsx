@@ -14,5 +14,9 @@ export default class Loading extends Component {
 }
 
 Loading.propTypes = {
-  title: PropTypes.bool.isRequired,
+  title: PropTypes.bool,
+};
+
+Loading.defaultProps = {
+  title: false,
 };
