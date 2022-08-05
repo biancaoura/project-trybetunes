@@ -10,21 +10,21 @@ body {
   display: flex;
 }
 
-.flex-column {
+.flex_column {
   display: flex;
   flex-direction: column;
 }
 
-.round-border {
+.round_border {
   border-radius: 2em;
 }
 
 body,
-main {
+.main {
   justify-content: center;
 }
 
-main {
+.main {
   align-items: center;
   box-shadow: 5px 8px 10px 10px rgba(0, 0, 0, 0.37);
   height: 80vh;
@@ -32,7 +32,7 @@ main {
   width: 85vw;
 }
 
-header {
+.header {
   text-align: center;
   margin-bottom: 8em;
 }
@@ -48,12 +48,12 @@ h4 {
   font-weight: 200;
 }
 
-.name-container {
+.name_container {
   gap: 0.8em;
   margin-bottom: 2em;
 }
 
-input {
+.input {
   background-color: #333333;
   border-color: white;
   border-radius: 0;
@@ -63,18 +63,18 @@ input {
   padding-bottom: 0.4em;
 }
 
-input:focus {
+.input:focus {
   border-color: #28E2CC;
 }
 
-button {
+.button {
   background-color: #333333;
   border: 1px solid grey;
   padding: 1em 2em;
   font-size: 1em;
 }
 
-button:hover:enabled {
+.button:hover:enabled {
   background-color: #383838;
   border: 1px solid #28E2CC;
   color: #A5F3EA;

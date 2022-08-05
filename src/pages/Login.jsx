@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
-import '../styles/Login.css';
+import styles from '../styles/Login.module.css';
 
 export default class Login extends Component {
   state = {
@@ -40,20 +41,24 @@ export default class Login extends Component {
       <div data-testid="page-login">
         {
           loading === true ? <Loading title /> : (
-            <main className="flex-column round-border">
+            <main className={ cx(styles.flex_column, styles.round_border, styles.main) }>
 
-              <header>
+              <header className={ styles.header }>
                 <h1>Welcome back!</h1>
                 <h4>Login</h4>
               </header>
 
-              <div className="input-container flex-column">
+              <div className={ styles.flex_column }>
                 <div>
-                  <label htmlFor="loginName" className="name-container flex-column">
+                  <label
+                    htmlFor="loginName"
+                    className={ cx(styles.name_container, styles.flex_column) }
+                  >
                     <div>Name</div>
                     <input
                       type="text"
                       id="loginName"
+                      className={ styles.input }
                       name="loginName"
                       minLength="3"
                       placeholder="Your name"
@@ -65,7 +70,7 @@ export default class Login extends Component {
                 </div>
                 <button
                   type="button"
-                  className="round-border"
+                  className={ cx(styles.round_border, styles.button) }
                   disabled={ hasMinChar }
                   data-testid="login-submit-button"
                   onClick={ logginIn }
