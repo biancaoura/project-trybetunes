@@ -11,13 +11,12 @@ export default class Login extends Component {
     loading: false,
   }
 
-  handleChange = ({ target }) => {
-    const { name, type, checked } = target;
-    const value = type === 'checkbox' ? checked : target.value;
+  componentDidMount() {
+    document.body.className = `${styles.login_body}`;
+  }
 
-    this.setState({
-      [name]: value,
-    });
+  componentWillUnmount() {
+    document.body.style.display = 'block';
   }
 
   logginIn = () => {
@@ -29,6 +28,15 @@ export default class Login extends Component {
         push('/search');
       });
   };
+
+  handleChange = ({ target }) => {
+    const { name, type, checked } = target;
+    const value = type === 'checkbox' ? checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  }
 
   render() {
     const { loginName, loading } = this.state;

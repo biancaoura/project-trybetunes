@@ -5,7 +5,7 @@
   color: white;
 }
 
-body {
+.login_body {
   background-color: #333333;
   display: flex;
 }
@@ -19,7 +19,7 @@ body {
   border-radius: 2em;
 }
 
-body,
+.login_body,
 .main {
   justify-content: center;
 }
