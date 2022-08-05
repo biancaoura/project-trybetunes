@@ -5,8 +5,11 @@
   color: white;
 }
 
+body {
+background-color: #333333;
+}
+
 .login_body {
-  background-color: #333333;
   display: flex;
 }
 
