@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { slide as Menu } from 'react-burger-menu';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons';
+import '../styles/Header.css';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
-import styles from '../styles/Header.module.css';
 
-export default class Header extends Component {
+export default class Sidebar extends Component {
   state = {
     loginName: '',
     loading: false,
@@ -27,35 +28,36 @@ export default class Header extends Component {
     const { loginName, loading } = this.state;
 
     return (
-      <header className={ styles.header } data-testid="header-component">
-        <nav className={ styles.nav }>
-          <Link to="/favorites" data-testid="link-to-favorites">
-            <div className={ styles.icon_container }>
-              <FontAwesomeIcon icon={ faStar } />
-              Favorites
-            </div>
-          </Link>
-          <Link to="/search" data-testid="link-to-search">
-            <div className={ styles.icon_container }>
-              <FontAwesomeIcon icon={ faMagnifyingGlass } />
-              Search
-            </div>
-          </Link>
-          <Link to="/profile" data-testid="link-to-profile">
-            <div className={ styles.icon_container }>
-              <FontAwesomeIcon icon={ faUser } />
-              Profile
-            </div>
-          </Link>
-          { loading
-            ? <Loading />
-            : (
-              <p className={ styles.username } data-testid="header-user-name">
-                { loginName }
-              </p>
-            ) }
-        </nav>
-      </header>
+      <Menu>
+        { loading
+          ? <Loading />
+          : (
+            <p className="username" data-testid="header-user-name">
+              { loginName }
+            </p>
+          ) }
+
+        <Link to="/search" data-testid="link-to-search">
+          <div className="icon-container bm-item">
+            <FontAwesomeIcon icon={ faMagnifyingGlass } />
+            Search
+          </div>
+        </Link>
+
+        <Link to="/favorites" data-testid="link-to-favorites">
+          <div className="icon-container bm-item">
+            <FontAwesomeIcon icon={ faStar } />
+            Favorites
+          </div>
+        </Link>
+
+        <Link to="/profile" data-testid="link-to-profile">
+          <div className="icon-container bm-item">
+            <FontAwesomeIcon icon={ faUser } />
+            Profile
+          </div>
+        </Link>
+      </Menu>
     );
   }
 }
