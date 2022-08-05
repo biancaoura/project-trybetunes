@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
+import styles from '../styles/Header.module.css';
 
 export default class Header extends Component {
   state = {
@@ -24,16 +27,30 @@ export default class Header extends Component {
     const { loginName, loading } = this.state;
 
     return (
-      <header data-testid="header-component">
-        <nav>
-          Header
-          <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
-          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+      <header className={ styles.header } data-testid="header-component">
+        <nav className={ styles.nav }>
+          <Link to="/favorites" data-testid="link-to-favorites">
+            <div className={ styles.icon_container }>
+              <FontAwesomeIcon icon={ faStar } />
+              Favorites
+            </div>
+          </Link>
+          <Link to="/search" data-testid="link-to-search">
+            <div className={ styles.icon_container }>
+              <FontAwesomeIcon icon={ faMagnifyingGlass } />
+              Search
+            </div>
+          </Link>
+          <Link to="/profile" data-testid="link-to-profile">
+            <div className={ styles.icon_container }>
+              <FontAwesomeIcon icon={ faUser } />
+              Profile
+            </div>
+          </Link>
           { loading
             ? <Loading />
             : (
-              <p data-testid="header-user-name">
+              <p className={ styles.username } data-testid="header-user-name">
                 { loginName }
               </p>
             ) }
