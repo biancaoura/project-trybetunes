@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faStar } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import '../styles/Header.css';
+import cx from 'classnames';
+import styles from '../styles/Header.module.css';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
 
@@ -25,40 +26,58 @@ export default class Sidebar extends Component {
       });
   }
 
-  render() {
+  getMenu = () => {
     const { loginName, loading } = this.state;
-
     return (
-      <Menu>
-        { loading
-          ? <Loading />
-          : (
-            <p className="username" data-testid="header-user-name">
-              { loginName }
-            </p>
-          ) }
+      <Menu
+        bodyClassName={ styles.body }
+        htmlClassName={ styles.html }
+        pageWrapId="page-wrap"
+        burgerButtonClassName={ styles.burger_button }
+        burgerBarClassName={ cx(styles.burger_bars, styles.burger_bars_hover) }
+        crossButtonClassName={ styles.cross_button }
+        crossClassName={ styles.cross }
+        menuClassName={ cx(styles.menu_wrap, styles.menu) }
+        itemListClassName={ styles.item_list }
+        itemClassName={ styles.item }
+        overlayClassName={ styles.overlay }
+        width="220px"
+      >
+        { loading && <Loading />}
+        <p className={ styles.username } data-testid="header-user-name">
+          { loginName }
+        </p>
 
         <Link to="/search" data-testid="link-to-search">
-          <div className="icon-container bm-item">
+          <div className={ cx(styles.icon_container, styles.item) }>
             <FontAwesomeIcon icon={ faMagnifyingGlass } />
             Search
           </div>
         </Link>
 
         <Link to="/favorites" data-testid="link-to-favorites">
-          <div className="icon-container bm-item">
+          <div className={ cx(styles.icon_container, styles.item) }>
             <FontAwesomeIcon icon={ faStar } />
             Favorites
           </div>
         </Link>
 
         <Link to="/profile" data-testid="link-to-profile">
-          <div className="icon-container bm-item">
+          <div className={ cx(styles.icon_container, styles.item) }>
             <FontAwesomeIcon icon={ faUser } />
             Profile
           </div>
         </Link>
+
       </Menu>
+    );
+  }
+
+  render() {
+    return (
+      <div id="outer-menu-container">
+        {this.getMenu()}
+      </div>
     );
   }
 }
