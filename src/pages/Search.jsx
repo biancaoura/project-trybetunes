@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Albums from '../components/Albums';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import styles from '../styles/Components.module.css';
 
 export default class Search extends Component {
   state = {
@@ -10,6 +11,11 @@ export default class Search extends Component {
     loading: false,
     artistResults: '',
     albums: [],
+    albumFound: false,
+  }
+
+  componentDidMount() {
+    document.body.className = `${styles.body}`;
   }
 
   handleChange = ({ target }) => {
@@ -25,9 +31,11 @@ export default class Search extends Component {
     this.setState({
       loading: true,
       artistResults: searchInput,
+      albumFound: true,
     },
     async () => {
       const data = await searchAlbumsAPI(searchInput);
+      console.log(data);
       this.setState({
         searchInput: '',
         loading: false,
@@ -37,41 +45,40 @@ export default class Search extends Component {
   }
 
   render() {
-    const { searchInput, loading, artistResults, albums } = this.state;
+    const { searchInput, loading, artistResults, albums, albumFound } = this.state;
     const { handleChange, handleClick } = this;
     const minLength = 2;
     const hasMinChar = searchInput.length >= minLength;
 
     return (
-      <div data-testid="page-search">
+      <div className={ styles.content_wrapper }>
         <Header />
-        {
-          loading
-            ? <Loading />
-            : (
-              <section>
-                <h4>{`Resultado de álbuns de: ${artistResults}`}</h4>
-                <input
-                  type="text"
-                  id="searchInput"
-                  name="searchInput"
-                  placeholder="Buscar Banda / Artista"
-                  value={ searchInput }
-                  onChange={ handleChange }
-                  data-testid="search-artist-input"
-                />
-                <button
-                  type="button"
-                  disabled={ !hasMinChar }
-                  onClick={ handleClick }
-                  data-testid="search-artist-button"
-                >
-                  Pesquisar
-                </button>
-              </section>
-            )
-        }
-        <Albums albums={ albums } />
+        <main className={ styles.main_container } data-testid="page-search">
+          { loading && <Loading /> }
+          <section className={ styles.input_container }>
+            <input
+              type="text"
+              id="searchInput"
+              name="searchInput"
+              placeholder="Search albums by artist / band name"
+              value={ searchInput }
+              onChange={ handleChange }
+              className={ styles.input }
+              data-testid="search-artist-input"
+            />
+            <button
+              type="button"
+              disabled={ !hasMinChar }
+              onClick={ handleClick }
+              className={ styles.button }
+              data-testid="search-artist-button"
+            >
+              Search
+            </button>
+          </section>
+          {albumFound && <Albums albums={ albums } artist={ artistResults } />}
+
+        </main>
       </div>
     );
   }
