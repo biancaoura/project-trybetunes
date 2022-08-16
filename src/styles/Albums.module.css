@@ -1,0 +1,61 @@
+.outer_container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.cards_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+  margin: auto;
+  width: 80%;
+}
+
+.card {
+  list-style-type: none;
+}
+
+.link {
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+.link:hover {
+  border: 1px solid #888;
+}
+
+.img {
+  width: 19vh;
+}
+
+.h3 {
+  color: #dbfaf6;
+  font-size: 1.4em;
+  font-weight: 300;
+  margin: 1em auto;
+}
+
+.h4 {
+  color: #28e2cc;
+  font-size: 1em;
+  font-weight: 300;
+  max-width: 19vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p {
+  font-size: 0.9em;
+  max-width: 19vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
