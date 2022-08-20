@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Albums from '../components/Albums';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import styles from '../styles/Components.module.css';
+import styles from '../styles/Search.module.css';
 
 export default class Search extends Component {
   state = {
