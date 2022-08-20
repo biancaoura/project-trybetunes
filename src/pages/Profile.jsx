@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
+import styles from '../styles/Profile.module.css';
 
 export default class Profile extends Component {
   state = {
@@ -29,19 +30,20 @@ export default class Profile extends Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        {
-          loading
-            ? <Loading title />
-            : (
-              <section>
-                <h3>{name}</h3>
-                <p>{email}</p>
-                <p>{description}</p>
-                <img src={ image } alt="imagem de perfil" data-testid="profile-image" />
-                <Link to="/profile/edit">Editar perfil</Link>
-              </section>
-            )
-        }
+        <section className={ styles.profile_container }>
+          <h1 className={ styles.profile_title }>Profile overview</h1>
+          <h3>{name}</h3>
+          <p>{email}</p>
+          <p>{description}</p>
+          <img
+            src={ image }
+            alt="profile pic"
+            data-testid="profile-image"
+            className={ styles.profile_img }
+          />
+          <Link to="/profile/edit" className={ styles.edit_button }>Edit profile</Link>
+        </section>
+        { loading && <Loading title /> }
       </div>
     );
   }
