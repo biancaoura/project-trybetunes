@@ -1,16 +1,24 @@
-# 🚧 README em construção 🚧
+# Trybetunes Project
 
-<!-- Olá, Tryber!
+## Goals
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+### Develop a music application, capable of:
 
-É essencial que você preencha esse documento por conta própria, ok?
+- Login user;
+- Search band/artist;
+- List available albums of searched band/artist;
+- List songs of selected album;
+- Play a preview of songs;
+- Favorite and unfavorite songs;
+- See list of favorite songs;
+- See and edit user profile.
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+### Create components:
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+- Login, Header, Search, Album, MusicCard, Favorites, Profile, ProfileEdit
 
--->
+### First project using Routes
+
+> Project developed with React
+
+> service files provided by Trybe
