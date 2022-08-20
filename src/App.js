@@ -12,7 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={ Login } />
+        <Route exact path="/project-trybetunes" component={ Login } />
         <Route path="/search" component={ Search } />
         <Route path="/album/:id" component={ Album } />
         <Route path="/favorites" component={ Favorites } />
