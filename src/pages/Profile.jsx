@@ -28,7 +28,7 @@ export default class Profile extends Component {
   render() {
     const { name, email, description, image, loading } = this.state;
     return (
-      <div data-testid="page-profile">
+      <div>
         <Header />
         <section className={ styles.profile_container }>
           <h1 className={ styles.profile_title }>Profile overview</h1>
@@ -38,7 +38,6 @@ export default class Profile extends Component {
           <img
             src={ image }
             alt="profile pic"
-            data-testid="profile-image"
             className={ styles.profile_img }
           />
           <Link to="/profile/edit" className={ styles.edit_button }>Edit profile</Link>

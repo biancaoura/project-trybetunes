@@ -44,25 +44,25 @@ export default class Sidebar extends Component {
         width="220px"
       >
         { loading && <Loading />}
-        <p className={ styles.username } data-testid="header-user-name">
+        <p className={ styles.username }>
           { loginName }
         </p>
 
-        <Link to="/search" data-testid="link-to-search">
+        <Link to="/search">
           <div className={ cx(styles.icon_container, styles.item) }>
             <FontAwesomeIcon icon={ faMagnifyingGlass } />
             Search
           </div>
         </Link>
 
-        <Link to="/favorites" data-testid="link-to-favorites">
+        <Link to="/favorites">
           <div className={ cx(styles.icon_container, styles.item) }>
             <FontAwesomeIcon icon={ faStar } />
             Favorites
           </div>
         </Link>
 
-        <Link to="/profile" data-testid="link-to-profile">
+        <Link to="/profile">
           <div className={ cx(styles.icon_container, styles.item) }>
             <FontAwesomeIcon icon={ faUser } />
             Profile

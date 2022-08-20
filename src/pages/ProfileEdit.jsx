@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { func, shape } from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
@@ -54,7 +54,7 @@ export default class ProfileEdit extends Component {
     const isDisabled = name && email && description && image && isEmail;
 
     return (
-      <div data-testid="page-profile-edit">
+      <div>
         <Header />
         <section className={ styles.edit_container }>
           <h1 className={ styles.edit_title }>Edit profile</h1>
@@ -66,7 +66,6 @@ export default class ProfileEdit extends Component {
             placeholder="Name"
             value={ name }
             onChange={ handleChange }
-            data-testid="edit-input-name"
           />
           <input
             type="text"
@@ -76,7 +75,6 @@ export default class ProfileEdit extends Component {
             placeholder="Email"
             value={ email }
             onChange={ handleChange }
-            data-testid="edit-input-email"
           />
           <input
             type="text"
@@ -86,7 +84,6 @@ export default class ProfileEdit extends Component {
             placeholder="Description"
             value={ description }
             onChange={ handleChange }
-            data-testid="edit-input-description"
           />
           <input
             type="text"
@@ -96,16 +93,14 @@ export default class ProfileEdit extends Component {
             placeholder="Image path"
             value={ image }
             onChange={ handleChange }
-            data-testid="edit-input-image"
           />
           <button
             type="button"
             disabled={ !isDisabled }
             className={ styles.edit_button }
             onClick={ handleClick }
-            data-testid="edit-button-save"
           >
-            Salvar
+            Save
           </button>
         </section>
         { loading && <Loading /> }
@@ -115,7 +110,7 @@ export default class ProfileEdit extends Component {
 }
 
 ProfileEdit.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
+  history: shape({
+    push: func.isRequired,
   }).isRequired,
 };

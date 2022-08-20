@@ -20,11 +20,7 @@ export default class Albums extends Component {
               artworkUrl100,
             }) => (
               <li key={ collectionId } className={ styles.card }>
-                <Link
-                  to={ `/album/${collectionId}` }
-                  className={ styles.link }
-                  data-testid={ `link-to-album-${collectionId}` }
-                >
+                <Link to={ `/album/${collectionId}` } className={ styles.link }>
                   <img
                     src={ artworkUrl100 }
                     alt={ `${collectionName} cover` }

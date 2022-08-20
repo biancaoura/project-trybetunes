@@ -29,7 +29,7 @@ export default class Favorites extends Component {
     const { loading, favoriteSongs } = this.state;
 
     return (
-      <div data-testid="page-favorites">
+      <div>
         <Header />
         <div className={ styles.favorite_container }>
           <h1 className={ styles.favorite_title }>Favorite songs</h1>
@@ -38,7 +38,7 @@ export default class Favorites extends Component {
               <div key={ song.trackId } className={ styles.song_container }>
                 <img
                   src={ song.artworkUrl100 }
-                  alt="capa do álbum"
+                  alt="album cover"
                   className={ styles.favorite_img }
                 />
                 <MusicCard { ...song } { ...this } />

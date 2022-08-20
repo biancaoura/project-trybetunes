@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { func, number, oneOfType, string } from 'prop-types';
 import Loading from './Loading';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import styles from '../styles/MusicCard.module.css';
@@ -43,7 +43,7 @@ export default class MusicCard extends Component {
       <section className={ styles.song_info }>
 
         <span className={ styles.song_name }>{trackName}</span>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+        <audio src={ previewUrl } controls>
           <track kind="captions" />
           Your browser doesn&apos;t support this audio
           <code>audio</code>
@@ -56,7 +56,6 @@ export default class MusicCard extends Component {
             className={ styles.favorite_checkbox }
             checked={ favoriteSongs.some((song) => song.trackId === trackId) }
             onChange={ this.handleCheck }
-            data-testid={ `checkbox-music-${trackId}` }
           />
           Favorite
         </label>
@@ -67,11 +66,11 @@ export default class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  trackName: PropTypes.string.isRequired,
-  previewUrl: PropTypes.string.isRequired,
-  trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  artworkUrl100: PropTypes.string,
-  updateFavorite: PropTypes.func,
+  trackName: string.isRequired,
+  previewUrl: string.isRequired,
+  trackId: oneOfType([number, string]).isRequired,
+  artworkUrl100: string,
+  updateFavorite: func,
 };
 
 MusicCard.defaultProps = {

@@ -53,7 +53,7 @@ export default class Search extends Component {
     return (
       <div className={ styles.content_wrapper }>
         <Header />
-        <main className={ styles.main_container } data-testid="page-search">
+        <main className={ styles.main_container }>
 
           <section className={ styles.input_container }>
             <input
@@ -64,14 +64,12 @@ export default class Search extends Component {
               value={ searchInput }
               onChange={ handleChange }
               className={ styles.input }
-              data-testid="search-artist-input"
             />
             <button
               type="button"
               disabled={ !hasMinChar }
               onClick={ handleClick }
               className={ styles.button }
-              data-testid="search-artist-button"
             >
               Search
             </button>
