@@ -56,54 +56,56 @@ export default class ProfileEdit extends Component {
     return (
       <div>
         <Header />
-        <section className={ styles.edit_container }>
-          <h1 className={ styles.edit_title }>Edit profile</h1>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className={ styles.input_info }
-            placeholder="Name"
-            value={ name }
-            onChange={ handleChange }
-          />
-          <input
-            type="text"
-            name="email"
-            id="email"
-            className={ styles.input_info }
-            placeholder="Email"
-            value={ email }
-            onChange={ handleChange }
-          />
-          <input
-            type="text"
-            name="description"
-            id="description"
-            className={ styles.input_info }
-            placeholder="Description"
-            value={ description }
-            onChange={ handleChange }
-          />
-          <input
-            type="text"
-            name="image"
-            id="image"
-            className={ styles.input_info }
-            placeholder="Image path"
-            value={ image }
-            onChange={ handleChange }
-          />
-          <button
-            type="button"
-            disabled={ !isDisabled }
-            className={ styles.edit_button }
-            onClick={ handleClick }
-          >
-            Save
-          </button>
-        </section>
-        { loading && <Loading /> }
+        { loading ? <Loading title />
+          : (
+            <section className={ styles.edit_container }>
+              <h1 className={ styles.edit_title }>Edit profile</h1>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                className={ styles.input_info }
+                placeholder="Name"
+                value={ name }
+                onChange={ handleChange }
+              />
+              <input
+                type="text"
+                name="email"
+                id="email"
+                className={ styles.input_info }
+                placeholder="Email"
+                value={ email }
+                onChange={ handleChange }
+              />
+              <input
+                type="text"
+                name="description"
+                id="description"
+                className={ styles.input_info }
+                placeholder="Description"
+                value={ description }
+                onChange={ handleChange }
+              />
+              <input
+                type="text"
+                name="image"
+                id="image"
+                className={ styles.input_info }
+                placeholder="Image path"
+                value={ image }
+                onChange={ handleChange }
+              />
+              <button
+                type="button"
+                disabled={ !isDisabled }
+                className={ styles.edit_button }
+                onClick={ handleClick }
+              >
+                Save
+              </button>
+            </section>
+          )}
       </div>
     );
   }

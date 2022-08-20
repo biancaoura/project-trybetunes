@@ -54,27 +54,28 @@ export default class Search extends Component {
       <div className={ styles.content_wrapper }>
         <Header />
         <main className={ styles.main_container }>
-
-          <section className={ styles.input_container }>
-            <input
-              type="text"
-              id="searchInput"
-              name="searchInput"
-              placeholder="Search albums by artist / band name"
-              value={ searchInput }
-              onChange={ handleChange }
-              className={ styles.input }
-            />
-            <button
-              type="button"
-              disabled={ !hasMinChar }
-              onClick={ handleClick }
-              className={ styles.button }
-            >
-              Search
-            </button>
-          </section>
-          { loading && <Loading /> }
+          { loading ? <Loading />
+            : (
+              <section className={ styles.input_container }>
+                <input
+                  type="text"
+                  id="searchInput"
+                  name="searchInput"
+                  placeholder="Search albums by artist / band name"
+                  value={ searchInput }
+                  onChange={ handleChange }
+                  className={ styles.input }
+                />
+                <button
+                  type="button"
+                  disabled={ !hasMinChar }
+                  onClick={ handleClick }
+                  className={ styles.button }
+                >
+                  Search
+                </button>
+              </section>
+            )}
           {albumFound && <Albums albums={ albums } artist={ artistResults } />}
 
         </main>

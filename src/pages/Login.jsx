@@ -47,41 +47,43 @@ export default class Login extends Component {
 
     return (
       <div>
-        <main className={ cx(styles.flex_column, styles.round_border, styles.main) }>
+        { loading ? <Loading title />
+          : (
+            <main className={ cx(styles.flex_column, styles.round_border, styles.main) }>
 
-          <header className={ styles.header }>
-            <h1>Welcome back!</h1>
-            <h4>Login</h4>
-          </header>
+              <header className={ styles.header }>
+                <h1>Welcome back!</h1>
+                <h4>Login</h4>
+              </header>
 
-          <div className={ styles.flex_column }>
-            <label
-              htmlFor="loginName"
-              className={ cx(styles.name_container, styles.flex_column) }
-            >
-              <div>Name</div>
-              <input
-                type="text"
-                id="loginName"
-                className={ styles.input }
-                name="loginName"
-                minLength="3"
-                placeholder="Your name"
-                value={ loginName }
-                onChange={ (e) => handleChange(e) }
-              />
-            </label>
-            <button
-              type="button"
-              className={ cx(styles.round_border, styles.button) }
-              disabled={ hasMinChar }
-              onClick={ logginIn }
-            >
-              Login
-            </button>
-          </div>
-        </main>
-        { loading && <Loading title /> }
+              <div className={ styles.flex_column }>
+                <label
+                  htmlFor="loginName"
+                  className={ cx(styles.name_container, styles.flex_column) }
+                >
+                  <div>Name</div>
+                  <input
+                    type="text"
+                    id="loginName"
+                    className={ styles.input }
+                    name="loginName"
+                    minLength="3"
+                    placeholder="Your name"
+                    value={ loginName }
+                    onChange={ (e) => handleChange(e) }
+                  />
+                </label>
+                <button
+                  type="button"
+                  className={ cx(styles.round_border, styles.button) }
+                  disabled={ hasMinChar }
+                  onClick={ logginIn }
+                >
+                  Login
+                </button>
+              </div>
+            </main>
+          )}
       </div>
     );
   }

@@ -32,24 +32,25 @@ export default class Album extends Component {
     return (
       <div>
         <Header />
-
-        <div className={ styles.album_info }>
-          <section className={ styles.album_header }>
-            <h3 className={ styles.album_title }>{collectionName}</h3>
-            <h4 className={ styles.artist_name }>{artistName}</h4>
-            <img src={ artworkUrl100 } alt="album cover" />
-          </section>
-          <ul>
-            {
-              allSongs
-                .slice(1)
-                .map((song) => (
-                  <MusicCard key={ song.trackId } { ...song } />
-                ))
-            }
-            { loading && <Loading title /> }
-          </ul>
-        </div>
+        { loading ? <Loading title />
+          : (
+            <div className={ styles.album_info }>
+              <section className={ styles.album_header }>
+                <h3 className={ styles.album_title }>{collectionName}</h3>
+                <h4 className={ styles.artist_name }>{artistName}</h4>
+                <img src={ artworkUrl100 } alt="album cover" />
+              </section>
+              <ul>
+                {
+                  allSongs
+                    .slice(1)
+                    .map((song) => (
+                      <MusicCard key={ song.trackId } { ...song } />
+                    ))
+                }
+              </ul>
+            </div>
+          )}
       </div>
     );
   }

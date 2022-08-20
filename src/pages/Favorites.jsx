@@ -31,22 +31,24 @@ export default class Favorites extends Component {
     return (
       <div>
         <Header />
-        <div className={ styles.favorite_container }>
-          <h1 className={ styles.favorite_title }>Favorite songs</h1>
-          <ul>
-            {favoriteSongs.map((song) => (
-              <div key={ song.trackId } className={ styles.song_container }>
-                <img
-                  src={ song.artworkUrl100 }
-                  alt="album cover"
-                  className={ styles.favorite_img }
-                />
-                <MusicCard { ...song } { ...this } />
-              </div>
-            ))}
-          </ul>
-        </div>
-        { loading && <Loading /> }
+        { loading ? <Loading title />
+          : (
+            <div className={ styles.favorite_container }>
+              <h1 className={ styles.favorite_title }>Favorite songs</h1>
+              <ul>
+                {favoriteSongs.map((song) => (
+                  <div key={ song.trackId } className={ styles.song_container }>
+                    <img
+                      src={ song.artworkUrl100 }
+                      alt="album cover"
+                      className={ styles.favorite_img }
+                    />
+                    <MusicCard { ...song } { ...this } />
+                  </div>
+                ))}
+              </ul>
+            </div>
+          )}
       </div>
     );
   }

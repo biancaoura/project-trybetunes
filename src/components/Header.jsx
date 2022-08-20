@@ -43,10 +43,13 @@ export default class Sidebar extends Component {
         overlayClassName={ styles.overlay }
         width="220px"
       >
-        { loading && <Loading />}
-        <p className={ styles.username }>
-          { loginName }
-        </p>
+        { loading ? <Loading />
+          : (
+
+            <p className={ styles.username }>
+              { loginName }
+            </p>
+          )}
 
         <Link to="/search">
           <div className={ cx(styles.icon_container, styles.item) }>
