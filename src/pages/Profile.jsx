@@ -34,14 +34,14 @@ export default class Profile extends Component {
           : (
             <section className={ styles.profile_container }>
               <h1 className={ styles.profile_title }>Profile overview</h1>
-              <h3>{name}</h3>
-              <p>{email}</p>
-              <p>{description}</p>
               <img
                 src={ image }
                 alt="profile pic"
                 className={ styles.profile_img }
               />
+              <h3>{name}</h3>
+              <p>{email}</p>
+              <p>{description}</p>
               <Link
                 to="/profile/edit"
                 className={ styles.edit_button }
