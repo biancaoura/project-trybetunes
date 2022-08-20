@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { bool } from 'prop-types';
 
 export default class Loading extends Component {
   render() {
@@ -14,7 +14,7 @@ export default class Loading extends Component {
 }
 
 Loading.propTypes = {
-  title: PropTypes.bool,
+  title: bool,
 };
 
 Loading.defaultProps = {
