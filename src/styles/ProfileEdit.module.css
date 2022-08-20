@@ -1,0 +1,44 @@
+.edit_container {
+  align-items: center;
+  background: #252525;
+  border: 1px solid #28e2cc9e;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  margin: 4em auto;
+  padding: 4em 2em;
+  width: 35%;
+}
+
+.edit_title {
+  font-size: 2.6em;
+  font-weight: 300;
+  margin-bottom: 0.6em;
+}
+
+.input_info {
+  background-color: #252525;
+  border-color: white;
+  border-radius: 0;
+  border-width: 0 0 1px;
+  font-size: 1em;
+  outline: 0;
+  padding-bottom: 0.4em;
+  width: 15em;
+}
+
+.input_info:focus {
+  border-color: #28e2cc;
+}
+
+.edit_button {
+  background: #017365;
+  border: none;
+  border-radius: 30px;
+  padding: 1em 2em;
+}
+
+.edit_button:hover {
+  background: #29a395;
+}

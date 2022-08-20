@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import styles from '../styles/ProfileEdit.module.css';
 
 export default class ProfileEdit extends Component {
   state = {
@@ -55,54 +56,59 @@ export default class ProfileEdit extends Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        {
-          loading
-            ? <Loading />
-            : (
-              <section>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={ name }
-                  onChange={ handleChange }
-                  data-testid="edit-input-name"
-                />
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  value={ email }
-                  onChange={ handleChange }
-                  data-testid="edit-input-email"
-                />
-                <input
-                  type="text"
-                  name="description"
-                  id="description"
-                  value={ description }
-                  onChange={ handleChange }
-                  data-testid="edit-input-description"
-                />
-                <input
-                  type="text"
-                  name="image"
-                  id="image"
-                  value={ image }
-                  onChange={ handleChange }
-                  data-testid="edit-input-image"
-                />
-                <button
-                  type="button"
-                  disabled={ !isDisabled }
-                  onClick={ handleClick }
-                  data-testid="edit-button-save"
-                >
-                  Salvar
-                </button>
-              </section>
-            )
-        }
+        <section className={ styles.edit_container }>
+          <h1 className={ styles.edit_title }>Edit profile</h1>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className={ styles.input_info }
+            placeholder="Name"
+            value={ name }
+            onChange={ handleChange }
+            data-testid="edit-input-name"
+          />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            className={ styles.input_info }
+            placeholder="Email"
+            value={ email }
+            onChange={ handleChange }
+            data-testid="edit-input-email"
+          />
+          <input
+            type="text"
+            name="description"
+            id="description"
+            className={ styles.input_info }
+            placeholder="Description"
+            value={ description }
+            onChange={ handleChange }
+            data-testid="edit-input-description"
+          />
+          <input
+            type="text"
+            name="image"
+            id="image"
+            className={ styles.input_info }
+            placeholder="Image path"
+            value={ image }
+            onChange={ handleChange }
+            data-testid="edit-input-image"
+          />
+          <button
+            type="button"
+            disabled={ !isDisabled }
+            className={ styles.edit_button }
+            onClick={ handleClick }
+            data-testid="edit-button-save"
+          >
+            Salvar
+          </button>
+        </section>
+        { loading && <Loading /> }
       </div>
     );
   }
