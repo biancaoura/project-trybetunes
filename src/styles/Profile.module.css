@@ -13,6 +13,7 @@
 }
 
 .profile_img {
+  border: 1px solid white;
   border-radius: 50%;
   height: 150px;
   object-fit: cover;

@@ -36,7 +36,7 @@ export default class Profile extends Component {
               <h1 className={ styles.profile_title }>Profile overview</h1>
               <img
                 src={ image }
-                alt="profile pic"
+                alt=""
                 className={ styles.profile_img }
               />
               <h3>{name}</h3>
