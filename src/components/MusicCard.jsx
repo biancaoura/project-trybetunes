@@ -16,13 +16,13 @@ export default class MusicCard extends Component {
   }
 
   handleCheck = (e) => {
-    const { trackId, trackName, previewUrl, artworkUrl30, updateFavorite } = this.props;
+    const { trackId, trackName, previewUrl, artworkUrl100, updateFavorite } = this.props;
     this.setState({ loading: true },
       async () => {
         if (e.target.checked) {
-          await addSong({ trackId, trackName, previewUrl, artworkUrl30 });
+          await addSong({ trackId, trackName, previewUrl, artworkUrl100 });
         } else {
-          await removeSong({ trackId, trackName, previewUrl, artworkUrl30 });
+          await removeSong({ trackId, trackName, previewUrl, artworkUrl100 });
           if (updateFavorite) {
             const favoriteSongs = await getFavoriteSongs();
             updateFavorite(favoriteSongs);
@@ -75,11 +75,11 @@ MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  artworkUrl30: PropTypes.string,
+  artworkUrl100: PropTypes.string,
   updateFavorite: PropTypes.func,
 };
 
 MusicCard.defaultProps = {
-  artworkUrl30: 'url',
+  artworkUrl100: 'url',
   updateFavorite: () => {},
 };
