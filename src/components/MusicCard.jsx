@@ -45,27 +45,22 @@ export default class MusicCard extends Component {
         <span className={ styles.song_name }>{trackName}</span>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
-          O seu navegador não suporta o elemento
+          Your browser doesn&apos;t support this audio
           <code>audio</code>
         </audio>
-        {
-          loading
-            ? <Loading />
-            : (
-              <label htmlFor="favorite" className={ styles.label }>
-                <input
-                  type="checkbox"
-                  name="favorite"
-                  id="favorite"
-                  className={ styles.favorite_checkbox }
-                  checked={ favoriteSongs.some((song) => song.trackId === trackId) }
-                  onChange={ this.handleCheck }
-                  data-testid={ `checkbox-music-${trackId}` }
-                />
-                Favorite
-              </label>
-            )
-        }
+        <label htmlFor="favorite" className={ styles.label }>
+          <input
+            type="checkbox"
+            name="favorite"
+            id="favorite"
+            className={ styles.favorite_checkbox }
+            checked={ favoriteSongs.some((song) => song.trackId === trackId) }
+            onChange={ this.handleCheck }
+            data-testid={ `checkbox-music-${trackId}` }
+          />
+          Favorite
+        </label>
+        { loading && <Loading /> }
       </section>
     );
   }
