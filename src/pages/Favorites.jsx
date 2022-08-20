@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import Loading from '../components/Loading';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import styles from '../styles/Favorites.module.css';
 
 export default class Favorites extends Component {
   state = {
@@ -30,20 +31,22 @@ export default class Favorites extends Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        {
-          loading
-            ? <Loading />
-            : (
-              <ul>
-                {favoriteSongs.map((song) => (
-                  <div key={ song.trackId }>
-                    <img src={ song.artworkUrl30 } alt="capa do álbum" />
-                    <MusicCard { ...song } { ...this } />
-                  </div>
-                ))}
-              </ul>
-            )
-        }
+        <div className={ styles.favorite_container }>
+          <h1 className={ styles.favorite_title }>Favorite songs</h1>
+          <ul>
+            {favoriteSongs.map((song) => (
+              <div key={ song.trackId } className={ styles.song_container }>
+                <img
+                  src={ song.artworkUrl100 }
+                  alt="capa do álbum"
+                  className={ styles.favorite_img }
+                />
+                <MusicCard { ...song } { ...this } />
+              </div>
+            ))}
+          </ul>
+        </div>
+        { loading && <Loading /> }
       </div>
     );
   }
