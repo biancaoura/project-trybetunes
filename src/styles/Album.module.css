@@ -1,0 +1,32 @@
+.album_info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10em;
+  height: 100vh;
+  justify-content: center;
+  padding: 2em;
+}
+
+.album_header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: 100vh;
+  margin: auto 0;
+}
+
+.album_title {
+  color: #29a395;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.artist_name {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+img {
+  width: 150px;
+}

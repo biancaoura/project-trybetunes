@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
+import styles from '../styles/Album.module.css';
 
 export default class Album extends Component {
   state = {
@@ -32,26 +33,33 @@ export default class Album extends Component {
       <div data-testid="page-album">
         <Header />
 
-        <section>
-          <h4 data-testid="album-name">{collectionName}</h4>
-          <p data-testid="artist-name">{artistName}</p>
-          <img src={ artworkUrl100 } alt="capa do álbum" />
-        </section>
-
-        <ul>
-          {
-            loading
-              ? <Loading title />
-              : (
-                allSongs
-                  .slice(1)
-                  .map((song) => (
-                    <MusicCard key={ song.trackId } { ...song } />
-                  ))
-
-              )
-          }
-        </ul>
+        <div className={ styles.album_info }>
+          <section className={ styles.album_header }>
+            <h3
+              className={ styles.album_title }
+              data-testid="album-name"
+            >
+              {collectionName}
+            </h3>
+            <h4
+              className={ styles.artist_name }
+              data-testid="artist-name"
+            >
+              {artistName}
+            </h4>
+            <img src={ artworkUrl100 } alt="capa do álbum" />
+          </section>
+          <ul>
+            {
+              allSongs
+                .slice(1)
+                .map((song) => (
+                  <MusicCard key={ song.trackId } { ...song } />
+                ))
+            }
+            { loading && <Loading title /> }
+          </ul>
+        </div>
       </div>
     );
   }
