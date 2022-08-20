@@ -13,16 +13,16 @@
 
 .profile_img {
   border-radius: 50%;
-  height: 300px;
+  height: 150px;
   object-fit: cover;
-  width: 300px;
+  width: 150px;
 }
 
 .edit_button {
   background: #1f1f1f;
   border: 1px solid #1f1f1f;
   border-radius: 30px;
-  margin-top: 3em;
+  margin-top: 2em;
   padding: 0.5em 1.5em;
   text-decoration: none;
 }
