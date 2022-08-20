@@ -54,7 +54,7 @@ export default class Search extends Component {
       <div className={ styles.content_wrapper }>
         <Header />
         <main className={ styles.main_container } data-testid="page-search">
-          { loading && <Loading /> }
+
           <section className={ styles.input_container }>
             <input
               type="text"
@@ -76,6 +76,7 @@ export default class Search extends Component {
               Search
             </button>
           </section>
+          { loading && <Loading /> }
           {albumFound && <Albums albums={ albums } artist={ artistResults } />}
 
         </main>
