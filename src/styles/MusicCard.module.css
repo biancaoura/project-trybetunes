@@ -1,0 +1,32 @@
+.song_info {
+  align-items: center;
+  background: #4f4f4f81;
+  border-radius: 50px;
+  display: flex;
+  margin: 0.5em;
+  max-width: 45em;
+  padding: 1em 2em;
+}
+
+.song_info:hover {
+  background-color: #4f4f4f;
+}
+
+audio {
+  margin: auto;
+}
+
+.label {
+  margin-left: auto;
+}
+
+.song_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 12em;
+}
+
+.favorite_checkbox {
+  margin: auto 0.3em auto 1em;
+}
