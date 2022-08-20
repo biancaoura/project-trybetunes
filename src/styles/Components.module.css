@@ -1,0 +1,9 @@
+.loading_heading, .not_found {
+  margin: auto;
+  text-align: center;
+}
+
+.not_found {
+  font-weight: 400;
+  margin-top: 1em;
+}
